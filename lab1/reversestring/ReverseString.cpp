@@ -3,3 +3,7 @@
 //
 
 #include "ReverseString.h"
+
+char* reversestring(char* napis){
+    return napis;
+}
