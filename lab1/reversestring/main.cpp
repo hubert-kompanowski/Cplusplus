@@ -2,6 +2,6 @@
 #include "ReverseString.h"
 
 int main() {
-    std::cout << "napis na odwrot to:  " << reverse() << std::endl;
+    std::cout << "napis na odwrot to:  " << reverse("tekst") << std::endl;
     return 0;
 }

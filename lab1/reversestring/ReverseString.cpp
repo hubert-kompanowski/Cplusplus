@@ -4,6 +4,6 @@
 
 #include "ReverseString.h"
 
-char* reverse(){
+std::string reverse(std::string str) {
     return 0;
 }
