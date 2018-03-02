@@ -4,6 +4,6 @@
 
 #include "ReverseString.h"
 
-char* reversestring(char* napis){
-    return napis;
+char* reverse(){
+    return 0;
 }

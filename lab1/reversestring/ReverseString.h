@@ -5,6 +5,6 @@
 #ifndef JIMP_EXERCISES_REVERSESTRING_H
 #define JIMP_EXERCISES_REVERSESTRING_H
 
-char* reversestring(char* napis);
+char* reverse();
 
 #endif //JIMP_EXERCISES_REVERSESTRING_H
