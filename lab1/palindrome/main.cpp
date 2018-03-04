@@ -6,6 +6,6 @@
 #include "Palindrome.h"
 
 int main() {
-    std::cout << "napis na odwrot to:  " << "tekst" << std::endl;
+    std::cout << "palindroe? " << is_palindrome("abccccsba") << std::endl;
     return 0;
 }
