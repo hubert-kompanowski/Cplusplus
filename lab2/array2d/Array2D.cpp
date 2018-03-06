@@ -3,22 +3,61 @@
 //
 
 #include <iostream>
-#include "Array2d.h"
+#include <string>
+#include "Array2D.h"
 
-using namespace std;
 
 void UserInput(int n_rows, int n_columns){
-    cout << "podaj liczbę kolumn ";
-    cin >> n_columns;
-    cout << endl << "Podaj liczbe wierszy ";
-    cin >> n_rows;
-    cout << endl;
+    std::cout << "podaj liczbę kolumn ";
+    std::cin >> n_columns;
+    std::cout << std::endl << "Podaj liczbe wierszy ";
+    std::cin >> n_rows;
+    std::cout << std::endl;
 }
-int ** Array2D(int n_rows, int n_columns){
 
+void FillArray2D(int n_rows, int n_columns, int ** to_fill){
+    int n = 1;
+    for(int i = 0; i < n_rows; i++){
+        for(int j = 0; j < n_columns; j++){
+            to_fill[i][j] = n;
+            n++;
+        }
+    }
+}
+
+int ** Array2D(int n_rows, int n_columns){
+    int ** array = nullptr;
+    if(n_rows == 0 || n_columns == 0){
+        return array;
+    }
+        array = new int *[n_rows];
+        int n=1;
+
+        for (int i = 0; i < n_rows; i++) {
+            array[i] = new int [n_columns];
+        }
+
+        FillArray2D(n_rows, n_columns, array);
+        return array;
+}
+
+void DrawArray(int ** array, int n_rows, int n_columns){
+        for (int i = 0; i < n_rows; i++) {
+            for (int j = 0; j < n_columns; j++) {
+                std::cout.width(5);
+                std::cout << array[i][j];
+            }
+            std::cout << std::endl;
+        }
 }
 
 void DeleteArray2D(int ** array, int n_rows, int n_columns){
+    for(int i = 0; i < n_rows; i++){
+        delete [] array[i];
+    }
 
+    delete [] array;
+
+    array = nullptr;
 }
 

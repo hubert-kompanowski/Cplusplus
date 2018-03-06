@@ -4,7 +4,7 @@
 #include <string>
 #include "ReverseString.h"
 
-std::string reverse(std::string str) {
+std::string Reverse(std::string str) {
     size_t size = str.length();
     std::string reversed_characters;
 
@@ -14,6 +14,6 @@ std::string reverse(std::string str) {
 
     char last_character = str[size-1];
     str.erase((size-1), 1);
-    reversed_characters = last_character + reverse(str);
+    reversed_characters = last_character + Reverse(str);
     return std::string(reversed_characters);
     }

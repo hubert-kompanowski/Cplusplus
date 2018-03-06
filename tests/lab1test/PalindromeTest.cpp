@@ -17,7 +17,7 @@ TEST_P(PalindromeDataDrivenTests, PalindromeShouldReturnExpectedResult) {
   const TestParam &p = GetParam();
   auto expected = p.second;
   auto arg = p.first;
-  EXPECT_EQ(expected, is_palindrome(arg)) << "Did call is_palindrome(" << arg << ")\n";
+  EXPECT_EQ(expected, IsPalindrome(arg)) << "Did call IsPalindrome(" << arg << ")\n";
 }
 
 std::vector<TestParam> palindromeTestData{{"", true}, {"abc", false}, {"g", true}, {"8h", false},

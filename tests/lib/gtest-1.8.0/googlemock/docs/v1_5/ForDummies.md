@@ -328,7 +328,7 @@ Obviously `turtle.GetY()` is expected to be called four times. But if you think 
 ## Using Multiple Expectations ##
 So far we've only shown examples where you have a single expectation. More realistically, you're going to specify expectations on multiple mock methods, which may be from multiple mock objects.
 
-By default, when a mock method is invoked, Google Mock will search the expectations in the **reverse order** they are defined, and stop when an active expectation that matches the arguments is found (you can think of it as "newer rules override older ones."). If the matching expectation cannot take any more calls, you will get an upper-bound-violated failure. Here's an example:
+By default, when a mock method is invoked, Google Mock will search the expectations in the **Reverse order** they are defined, and stop when an active expectation that matches the arguments is found (you can think of it as "newer rules override older ones."). If the matching expectation cannot take any more calls, you will get an upper-bound-violated failure. Here's an example:
 
 ```
 using ::testing::_;...

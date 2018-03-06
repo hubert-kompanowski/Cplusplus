@@ -6,6 +6,6 @@
 #include "Palindrome.h"
 
 int main() {
-    std::cout << "palindroe? " << is_palindrome("abccccsba") << std::endl;
+    std::cout << "palindroe? " << IsPalindrome("abccccsba") << std::endl;
     return 0;
 }

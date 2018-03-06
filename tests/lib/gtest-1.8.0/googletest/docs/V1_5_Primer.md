@@ -214,17 +214,17 @@ name.
 
 For example, let's take a simple integer function:
 ```
-int Factorial(int n); // Returns the factorial of n
+int Factorial(int n); // Returns the Factorial of n
 ```
 
 A test case for this function might look like:
 ```
-// Tests factorial of 0.
+// Tests Factorial of 0.
 TEST(FactorialTest, HandlesZeroInput) {
   EXPECT_EQ(1, Factorial(0));
 }
 
-// Tests factorial of positive numbers.
+// Tests Factorial of positive numbers.
 TEST(FactorialTest, HandlesPositiveInput) {
   EXPECT_EQ(1, Factorial(1));
   EXPECT_EQ(2, Factorial(2));

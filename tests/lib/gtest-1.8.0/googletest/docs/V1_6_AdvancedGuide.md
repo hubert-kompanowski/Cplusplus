@@ -839,7 +839,7 @@ Some tips on using `SCOPED_TRACE`:
   1. With a suitable message, it's often enough to use `SCOPED_TRACE` at the beginning of a sub-routine, instead of at each call site.
   1. When calling sub-routines inside a loop, make the loop iterator part of the message in `SCOPED_TRACE` such that you can know which iteration the failure is from.
   1. Sometimes the line number of the trace point is enough for identifying the particular invocation of a sub-routine. In this case, you don't have to choose a unique message for `SCOPED_TRACE`. You can simply use `""`.
-  1. You can use `SCOPED_TRACE` in an inner scope when there is one in the outer scope. In this case, all active trace points will be included in the failure messages, in reverse order they are encountered.
+  1. You can use `SCOPED_TRACE` in an inner scope when there is one in the outer scope. In this case, all active trace points will be included in the failure messages, in Reverse order they are encountered.
   1. The trace dump is clickable in Emacs' compilation buffer - hit return on a line number and you'll be taken to that line in the source file!
 
 _Availability:_ Linux, Windows, Mac.
@@ -1078,7 +1078,7 @@ finally calls `TearDown()` of the environment object.
 
 It's OK to register multiple environment objects. In this case, their `SetUp()`
 will be called in the order they are registered, and their `TearDown()` will be
-called in the reverse order.
+called in the Reverse order.
 
 Note that Google Test takes ownership of the registered environment objects.
 Therefore **do not delete them** by yourself.
