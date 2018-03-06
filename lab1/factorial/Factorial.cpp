@@ -6,7 +6,6 @@
 bool OutOfRange(int value);
 
 int FactorialIter(int value) {
-    //sprawdzenie czy nie jest out of range
   if(OutOfRange(value)){
     return 0;
   }
@@ -28,8 +27,6 @@ int FactorialIter(int value) {
   return number;
 }
 
-bool OutOfRange(int value) { return value <= -13 || value >= 13; }
-
 int Factorial(int value) {
   if(OutOfRange(value)){
       return 0;
@@ -49,4 +46,6 @@ int Factorial(int value) {
       }
   }
 }
+
+bool OutOfRange(int value) { return value <= -13 || value >= 13; }
 
