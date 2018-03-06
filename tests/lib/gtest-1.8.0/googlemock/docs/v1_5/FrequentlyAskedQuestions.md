@@ -374,7 +374,7 @@ When people complain about this, often they are referring to code like:
 ```
 // foo.Bar() should be called twice, return 1 the first time, and return
 // 2 the second time.  However, I have to write the expectations in the
-// reverse order.  This sucks big time!!!
+// Reverse order.  This sucks big time!!!
 EXPECT_CALL(foo, Bar())
     .WillOnce(Return(2))
     .RetiresOnSaturation();

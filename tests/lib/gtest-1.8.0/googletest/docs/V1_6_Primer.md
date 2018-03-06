@@ -228,7 +228,7 @@ TEST(FactorialTest, HandlesZeroInput) {
   EXPECT_EQ(1, Factorial(0));
 }
 
-// Tests factorial of positive numbers.
+// Tests Factorial of positive numbers.
 TEST(FactorialTest, HandlesPositiveInput) {
   EXPECT_EQ(1, Factorial(1));
   EXPECT_EQ(2, Factorial(2));

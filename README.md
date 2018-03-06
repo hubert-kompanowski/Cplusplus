@@ -10,4 +10,4 @@ To add that template one has to right click in project menu choose
 
 To use it just click again `New` and then it should show up in the list. 
 The final step is to specify name which must be CMakeLists.txt and **space seperated**
-name of the testing class name e.g. `reverse string`
+name of the testing class name e.g. `Reverse string`

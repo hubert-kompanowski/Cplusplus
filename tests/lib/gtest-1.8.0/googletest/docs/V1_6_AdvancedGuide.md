@@ -1078,7 +1078,7 @@ finally calls `TearDown()` of the environment object.
 
 It's OK to register multiple environment objects. In this case, their `SetUp()`
 will be called in the order they are registered, and their `TearDown()` will be
-called in the reverse order.
+called in the Reverse order.
 
 Note that Google Test takes ownership of the registered environment objects.
 Therefore **do not delete them** by yourself.
