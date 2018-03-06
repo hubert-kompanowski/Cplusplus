@@ -9,7 +9,6 @@ int main(){
 
     UserInput(n_rows, n_columns);
     int ** array = Array2D(n_rows, n_columns);
-
     DrawArray(array, n_rows, n_columns);
     DeleteArray2D(array, n_rows, n_columns);
 
