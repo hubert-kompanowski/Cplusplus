@@ -129,6 +129,87 @@ int GreatestProduct(const std::vector<int> &numbers, int k){
 
 
 
+
+
+
+
+
+
+
+
+
+
+     std::vector<int> max_number_vector;
+    std::vector<int> max_number_vector_2;
+
+    std::vector < int >::const_iterator begin_vector;
+    std::vector < int >::const_iterator min_index;
+    std::vector < int >::const_iterator begin_vector_2;
+    std::vector < int >::const_iterator min_index_2;
+    int min_numer, min_numer_2;
+
+    for(int v : numbers) {
+        if(max_number_vector.size() < k){
+            max_number_vector.push_back(v);
+            max_number_vector_2.push_back(v);
+        }
+        else{
+            begin_vector = max_number_vector.begin();
+            min_index = max_number_vector.begin();
+            begin_vector_2 = max_number_vector_2.begin();
+            min_index_2 = max_number_vector_2.begin();
+            min_numer=100000;
+            min_numer_2 = 100000;
+
+
+
+            for(int x : max_number_vector_2) {
+                if (min_numer_2 > x) {
+                    min_numer_2 = x;
+                    min_index_2 = begin_vector_2;
+                }
+                begin_vector_2++;
+            }
+            if (v >= min_numer_2) {
+                max_number_vector_2.erase(min_index_2);
+                max_number_vector_2.insert(min_index_2, v);
+            }
+
+
+            for(int x : max_number_vector) {
+                //if(x>0) continue;
+                if (min_numer > abs(x)) {
+                    min_numer = abs(x);
+                    min_index = begin_vector;
+                }
+                begin_vector++;
+            }
+            if(abs(v) >= min_numer){
+                max_number_vector.erase(min_index);
+                max_number_vector.insert(min_index, v);
+            }
+        }
+    }
+    int iloczyn = 1;
+    int iloczyn_2 = 1;
+
+    for(int i : max_number_vector){
+        iloczyn *=i;
+    }
+    for(int i : max_number_vector_2){
+        iloczyn_2 *=i;
+    }
+
+    max_number_vector.clear();
+
+    if(iloczyn>iloczyn_2) {
+        return iloczyn;
+    }
+    else{
+        return iloczyn_2;
+    }
+}
+
 }
 
  * 
