@@ -59,7 +59,7 @@ std::vector<int> getVector(const std::vector<int> &numbers, int k, bool is_abs) 
             begin_vector = max_number_vector.begin();
             min_index = max_number_vector.begin();
             min_numer=100000;
-            
+
             for(int x : max_number_vector) {
                 if(is_abs) x=abs(x);
                 if (min_numer > x) {
