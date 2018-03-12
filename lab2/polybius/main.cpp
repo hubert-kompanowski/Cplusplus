@@ -20,7 +20,7 @@ int main(int argc, char* argv[]){
         std::cout << "Uzyskano dostep do pliku wejsciowego!" << std::endl;
     }
 
-    if(std::strcmp(argv[3], "1")){
+    if(std::strcmp(argv[3], "1") != 0){
         std::string dane;
         plik_wej >> dane;
         std::string szyfr = PolybiusCrypt(dane);
@@ -29,7 +29,7 @@ int main(int argc, char* argv[]){
         return 0;
     }
 
-    if(std::strcmp(argv[3], "0")){
+    if(std::strcmp(argv[3], "0") != 0){
         std::string dane;
         plik_wej >> dane;
         std::string wiadomosc = PolybiusDecrypt(dane);
@@ -40,4 +40,5 @@ int main(int argc, char* argv[]){
     }
 
     std::cout << "Błąd zapisu pliku.";
+    return 1;
 }
