@@ -7,6 +7,6 @@ set(SOURCE_FILES Array2D.cpp)
 add_library(libarray2d STATIC ${SOURCE_FILES})
 target_include_directories(libarray2d PUBLIC .)
 
-add_executable(array2d ${SOURCE_FILES} main.cpp)
+add_executable(array2d ${SOURCE_FILES} main.cpp ../xorcypherbreaker/XorCypherBreaker.cpp ../xorcypherbreaker/XorCypherBreaker.h)
 
 target_link_libraries(array2d libarray2d)
