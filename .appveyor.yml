@@ -1,0 +1,34 @@
+version: '{build}'
+
+platform:
+- x64
+
+environment:
+  matrix:
+  - GENERATOR: MinGW Makefiles
+
+
+build:
+  verbosity: detailed
+
+install:
+  - cmake --version
+
+before_build:
+  # Workaround for CMake not wanting sh.exe on PATH for MinGW
+  - set PATH=%PATH:C:\Program Files\Git\usr\bin;=%
+  - ECHO %PATH%
+  - set PATH=C:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1\mingw64\bin;%PATH%
+  - DIR C:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1
+  - DIR C:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1\mingw64\bin
+  - DIR C:\mingw\bin  
+  - mkdir build
+  - cd build
+  - cmake -G "%GENERATOR%" .. 
+
+build_script:
+  - mingw32-make example_examplelibrary_tests
+  - dir tests
+  - dir tests\exampletest
+  - tests\exampletest\example_examplelibrary_tests.exe
+
