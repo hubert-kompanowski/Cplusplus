@@ -10,8 +10,13 @@
 #include <map>
 #include <iostream>
 #include <string>
+#include <vector>
+
 namespace ccounter {
-    struct Counter;
+
+    struct Counter {
+        std::vector <std::pair <std::string, int>> data;
+    };
 
     std::unique_ptr<Counter> Init();
 

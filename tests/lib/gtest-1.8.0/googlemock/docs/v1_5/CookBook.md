@@ -631,7 +631,7 @@ works.)
 
 # Using Matchers #
 
-## Matching Argument Values Exactly ##
+## Matching Argument data Exactly ##
 
 You can specify exactly which arguments a mock method is expecting:
 
@@ -3174,7 +3174,7 @@ class MockFoo : public Foo {
   foo.DoThat(1, "Hi", "Bye");  // Will return "Hi".
 ```
 
-## Teaching Google Mock How to Print Your Values ##
+## Teaching Google Mock How to Print Your data ##
 
 When an uninteresting or unexpected call occurs, Google Mock prints
 the argument values to help you debug.  The `EXPECT_THAT` and

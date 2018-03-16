@@ -1,5 +1,5 @@
 $$ -*- mode: c++; -*-
-$var n = 50  $$ Maximum length of Values arguments we want to support.
+$var n = 50  $$ Maximum length of data arguments we want to support.
 $var maxtuple = 10  $$ Maximum number of Combine arguments we want to support.
 // Copyright 2008, Google Inc.
 // All rights reserved.
@@ -85,7 +85,7 @@ TEST_P(FooTest, HasBlahBlah) {
 //  Range(begin, end [, step]) - Yields values {begin, begin+step,
 //                               begin+step+step, ...}. The values do not
 //                               include end. step defaults to 1.
-//  Values(v1, v2, ..., vN)    - Yields values {v1, v2, ..., vN}.
+//  data(v1, v2, ..., vN)    - Yields values {v1, v2, ..., vN}.
 //  ValuesIn(container)        - Yields values from a C-style array, an STL
 //  ValuesIn(begin,end)          container, or an iterator range [begin, end).
 //  Bool()                     - Yields sequence {false, true}.
@@ -101,7 +101,7 @@ TEST_P(FooTest, HasBlahBlah) {
 
 INSTANTIATE_TEST_CASE_P(InstantiationName,
                         FooTest,
-                        Values("meeny", "miny", "moe"));
+                        data("meeny", "miny", "moe"));
 
 // To distinguish different instances of the pattern, (yes, you
 // can instantiate it more then once) the first argument to the
@@ -211,7 +211,7 @@ namespace testing {
 // }
 // TEST_P(FooTest, TestThat) {
 // }
-// INSTANTIATE_TEST_CASE_P(TestSequence, FooTest, Values(3, 5, 8));
+// INSTANTIATE_TEST_CASE_P(TestSequence, FooTest, data(3, 5, 8));
 //
 
 // Range() returns generators providing sequences of values in a range.
@@ -324,31 +324,31 @@ internal::ParamGenerator<typename Container::value_type> ValuesIn(
   return ValuesIn(container.begin(), container.end());
 }
 
-// Values() allows generating tests from explicitly specified list of
+// data() allows generating tests from explicitly specified list of
 // parameters.
 //
 // Synopsis:
-// Values(T v1, T v2, ..., T vN)
+// data(T v1, T v2, ..., T vN)
 //   - returns a generator producing sequences with elements v1, v2, ..., vN.
 //
 // For example, this instantiates tests from test case BarTest each
 // with values "one", "two", and "three":
 //
-// INSTANTIATE_TEST_CASE_P(NumSequence, BarTest, Values("one", "two", "three"));
+// INSTANTIATE_TEST_CASE_P(NumSequence, BarTest, data("one", "two", "three"));
 //
 // This instantiates tests from test case BazTest each with values 1, 2, 3.5.
 // The exact type of values will depend on the type of parameter in BazTest.
 //
-// INSTANTIATE_TEST_CASE_P(FloatingNumbers, BazTest, Values(1, 2, 3.5));
+// INSTANTIATE_TEST_CASE_P(FloatingNumbers, BazTest, data(1, 2, 3.5));
 //
-// Currently, Values() supports from 1 to $n parameters.
+// Currently, data() supports from 1 to $n parameters.
 //
 $range i 1..n
 $for i [[
 $range j 1..i
 
 template <$for j, [[typename T$j]]>
-internal::ValueArray$i<$for j, [[T$j]]> Values($for j, [[T$j v$j]]) {
+internal::ValueArray$i<$for j, [[T$j]]> data($for j, [[T$j v$j]]) {
   return internal::ValueArray$i<$for j, [[T$j]]>($for j, [[v$j]]);
 }
 
@@ -375,7 +375,7 @@ internal::ValueArray$i<$for j, [[T$j]]> Values($for j, [[T$j v$j]]) {
 // INSTANTIATE_TEST_CASE_P(BoolSequence, FlagDependentTest, Bool());
 //
 inline internal::ParamGenerator<bool> Bool() {
-  return Values(false, true);
+  return data(false, true);
 }
 
 # if GTEST_HAS_COMBINE
@@ -407,8 +407,8 @@ inline internal::ParamGenerator<bool> Bool() {
 // TEST_P(AnimalTest, AnimalLooksNice) {...}
 //
 // INSTANTIATE_TEST_CASE_P(AnimalVariations, AnimalTest,
-//                         Combine(Values("cat", "dog"),
-//                                 Values(BLACK, WHITE)));
+//                         Combine(data("cat", "dog"),
+//                                 data(BLACK, WHITE)));
 //
 // This will instantiate tests in FlagDependentTest with all variations of two
 // Boolean flags:

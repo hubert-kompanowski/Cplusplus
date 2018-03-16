@@ -631,7 +631,7 @@ works.)
 
 # Using Matchers #
 
-## Matching Argument Values Exactly ##
+## Matching Argument data Exactly ##
 
 You can specify exactly which arguments a mock method is expecting:
 
@@ -1437,7 +1437,7 @@ class MockFoo : public Foo {
       .WillOnce(ReturnRef(bar));
 ```
 
-## Returning Live Values from Mock Methods ##
+## Returning Live data from Mock Methods ##
 
 The `Return(x)` action saves a copy of `x` when the action is
 _created_, and always returns the same value whenever it's
@@ -3325,7 +3325,7 @@ class MockFoo : public Foo {
   foo.DoThat(1, "Hi", "Bye");  // Will return "Hi".
 ```
 
-## Teaching Google Mock How to Print Your Values ##
+## Teaching Google Mock How to Print Your data ##
 
 When an uninteresting or unexpected call occurs, Google Mock prints the
 argument values and the stack trace to help you debug.  Assertion

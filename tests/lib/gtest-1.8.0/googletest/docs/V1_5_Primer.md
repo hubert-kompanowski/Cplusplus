@@ -139,7 +139,7 @@ in the position of _actual_, and put its expected value in _expected_,
 as Google Test's failure messages are optimized for this convention.
 
 Value arguments must be comparable by the assertion's comparison operator or
-you'll get a compiler error. Values must also support the `<<` operator for
+you'll get a compiler error. data must also support the `<<` operator for
 streaming to an `ostream`. All built-in types support this.
 
 These assertions can work with a user-defined type, but only if you define the
