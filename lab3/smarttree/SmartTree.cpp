@@ -48,6 +48,11 @@ namespace datastructures {
         return "[none]";
     }
 
+    void tree_iter(const std::string &tree, int number_of_right_childs, std::string &in_tree, int &i,
+               int &number_of_left_childs);
+
+    std::unique_ptr<SmartTree> get_leaf_ptr(const std::string &in_tree);
+
     std::unique_ptr<SmartTree> RestoreTree(const std::string &tree) {
         if(tree == "[none]"){
             return nullptr;
@@ -63,29 +68,14 @@ namespace datastructures {
             }
         }
 
-        std::stringstream stream1;
-        int int_number;
-        stream1.str(in_tree);
-        stream1 >> int_number;
-        std::unique_ptr<SmartTree> leaf = CreateLeaf(int_number);
+        std::unique_ptr<SmartTree> leaf = get_leaf_ptr(in_tree);
 
         int number_of_left_childs = 0;
         int number_of_right_childs = 0;
         in_tree.clear();
 
         i++;
-        for(i; i<=tree.size(); i++){
-            in_tree += tree.at(i);
-            if(tree.at(i) == '['){
-                number_of_left_childs++;
-            }
-            if(tree.at(i) == ']'){
-                number_of_right_childs++;
-            }
-            if(number_of_left_childs == number_of_right_childs){
-                break;
-            }
-        }
+        tree_iter(tree, number_of_right_childs, in_tree, i, number_of_left_childs);
 
 
         if(!number_of_left_childs){
@@ -99,18 +89,7 @@ namespace datastructures {
         number_of_right_childs = 0;
 
         i+=2;
-        for(i; i<=tree.size(); i++){
-            in_tree += tree.at(i);
-            if(tree.at(i) == '['){
-                number_of_left_childs++;
-            }
-            if(tree.at(i) == ']'){
-                number_of_right_childs++;
-            }
-            if(number_of_left_childs == number_of_right_childs){
-                break;
-            }
-        }
+        tree_iter(tree, number_of_right_childs, in_tree, i, number_of_left_childs);
 
         if(!number_of_left_childs){
             leaf->right = nullptr;
@@ -118,5 +97,32 @@ namespace datastructures {
             leaf->right = RestoreTree(in_tree);
         }
         return leaf;
+    }
+
+    std::unique_ptr<SmartTree> get_leaf_ptr(const std::string &in_tree) {
+        std::stringstream stream1;
+        int int_number;
+        stream1.str(in_tree);
+        stream1 >> int_number;
+        std::unique_ptr<SmartTree> leaf = CreateLeaf(int_number);
+        return leaf;
+    }
+
+
+    void tree_iter(const std::string &tree, int number_of_right_childs,
+                   std::string &in_tree, int &i, int &number_of_left_childs) {
+
+        for(i; i <= tree.size(); i++){
+             in_tree += tree.at(i);
+             if(tree.at(i) == '['){
+                 number_of_left_childs++;
+             }
+             if(tree.at(i) == ']'){
+                 number_of_right_childs++;
+             }
+             if(number_of_left_childs == number_of_right_childs){
+                 break;
+             }
+        }
     }
 }
