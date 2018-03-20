@@ -26,21 +26,21 @@ TEST_F(SimpleForwardListStep3Tests, Define_Append_Method) {
   Append(head, new_node);
   EXPECT_EQ(old_head, head);
   EXPECT_EQ(k_head_value, head->value);
-  EXPECT_EQ(new_node, head->next);
-  EXPECT_EQ(101, head->next->value);
-  EXPECT_EQ(nullptr, head->next->next);
+  EXPECT_EQ(new_node, head->next_node);
+  EXPECT_EQ(101, head->next_node->value);
+  EXPECT_EQ(nullptr, head->next_node->next_node);
 }
 
 TEST_F(SimpleForwardListStep3Tests, AppendingNullTailShouldBeAllowed) {
   Append(head, nullptr);
-  EXPECT_EQ(nullptr, head->next);
+  EXPECT_EQ(nullptr, head->next_node);
 }
 
 TEST_F(SimpleForwardListStep3Tests, AppendingToNullListShouldNotCrush) {
   auto *old_head = head;
   Append(nullptr, head);
   EXPECT_EQ(old_head, head);
-  EXPECT_EQ(nullptr, head->next);
+  EXPECT_EQ(nullptr, head->next_node);
   EXPECT_EQ(k_head_value, head->value);
 }
 
@@ -48,19 +48,19 @@ TEST_F(SimpleForwardListStep3Tests, AppendingToLen3ListShouldReturnCorrectResult
   auto *old_head = head;
   ForwardList *first = CreateNode(1717);
   ForwardList *second = CreateNode(804);
-  head->next = first;
-  first->next = second;
+  head->next_node = first;
+  first->next_node = second;
   auto *another_tail = CreateNode(651);
   auto *another_first = PushFront(another_tail, 111);
   Append(head, another_first);
   EXPECT_EQ(old_head, head);
   EXPECT_EQ(k_head_value, head->value);
-  EXPECT_EQ(first, head->next);
-  EXPECT_EQ(second, head->next->next);
-  EXPECT_EQ(another_first, head->next->next->next);
-  EXPECT_EQ(another_tail, head->next->next->next->next);
-  EXPECT_EQ(111, head->next->next->next->value);
-  EXPECT_EQ(nullptr, head->next->next->next->next->next);
+  EXPECT_EQ(first, head->next_node);
+  EXPECT_EQ(second, head->next_node->next_node);
+  EXPECT_EQ(another_first, head->next_node->next_node->next_node);
+  EXPECT_EQ(another_tail, head->next_node->next_node->next_node->next_node);
+  EXPECT_EQ(111, head->next_node->next_node->next_node->value);
+  EXPECT_EQ(nullptr, head->next_node->next_node->next_node->next_node->next_node);
 }
 
 

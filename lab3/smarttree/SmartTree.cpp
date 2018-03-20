@@ -7,6 +7,8 @@
 
 namespace datastructures {
 
+
+
     std::unique_ptr<SmartTree> CreateLeaf(int value) {
         auto new_leaf = std::make_unique<SmartTree>();
         new_leaf->left = nullptr;

@@ -3,40 +3,46 @@
 //
 
 #include "SimpleForwardList.h"
-#include <iostream>
-
-using namespace std;
-
-struct Node {
-    int number;
-    Node *next;
-};
 
 
-struct ForwardList {
-    Node *head;
-    ForwardList *CreateNode(int value){
-        Node *new_number = new Node;
+ForwardList *CreateNode(int value) {
+    auto* new_node = new ForwardList;
+    new_node -> value = value;
+    new_node -> next_node = nullptr;
+    return new_node;
+}
 
-        new_number->number = value;
 
-        if(head==0){
-            head = new_number;
-        }
-        else{
-            Node *temp = head;
+void DestroyList(ForwardList *list) {
+    auto *current_node = list;
+    ForwardList *tmp_node;
 
-            while(temp->next){
-                temp = temp->next;
-            }
-            temp->next = new_number;
-            new_number->next = 0;
-        }
+    while(current_node) {
+        tmp_node = current_node;
+        current_node = current_node->next_node;
+        delete[] tmp_node;
     }
-};
+}
 
 
+ForwardList *PushFront(ForwardList *list, int value) {
+    if(!list) {
+        return nullptr;
+    } else {
+        auto *tmp_node = new ForwardList;
+        tmp_node->value = value;
+        tmp_node->next_node = list;
+        return tmp_node;
+    }
+}
 
 
-
-//void DestroyList(ForwardList *list);
+void Append(ForwardList *list, ForwardList *tail) {
+    if(list && tail) {
+        auto *tmp_node = list;
+        while (tmp_node->next_node) {
+            tmp_node = tmp_node->next_node;
+        }
+        tmp_node->next_node = tail;
+    }
+}

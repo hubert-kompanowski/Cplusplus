@@ -25,9 +25,9 @@ TEST_F(SimpleForwardListStep2Tests, Define_PushFront_Method) {
   ForwardList *new_node = PushFront(head, 103);
   EXPECT_NE(new_node, head);
   EXPECT_EQ(103, new_node->value);
-  EXPECT_EQ(old_head, new_node->next);
-  EXPECT_EQ(k_head_value, new_node->next->value);
-  EXPECT_EQ(nullptr, new_node->next->next);
+  EXPECT_EQ(old_head, new_node->next_node);
+  EXPECT_EQ(k_head_value, new_node->next_node->value);
+  EXPECT_EQ(nullptr, new_node->next_node->next_node);
   head = new_node;
 }
 
