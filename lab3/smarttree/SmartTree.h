@@ -19,6 +19,7 @@ namespace datastructures {
         std::unique_ptr<SmartTree> right;
         int value;
     };
+    
 
     std::unique_ptr<SmartTree> CreateLeaf(int value);
 
