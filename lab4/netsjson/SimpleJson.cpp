@@ -13,6 +13,7 @@ namespace nets {
 
     JsonValue::JsonValue(std::map<std::string, JsonValue> json_map) {
         json_map_value = std::experimental::make_optional(json_map);
+        string_value =
     }
 
     JsonValue::JsonValue(std::vector<JsonValue> json_vector) {
@@ -63,7 +64,9 @@ namespace nets {
             answ = "{";
             bool key = true;
             for(auto &i: *json_map_value){
+                JsonValue(i.first);
                 if(key) {
+
                     answ = answ + "\"" + i.first + "\"" + ": " + i.second.ToString();
                     key = false;
                 }
@@ -84,11 +87,12 @@ namespace nets {
             answ = "\"";
             std::string another_string = *string_value;
             for(int i = 0; i < another_string.size(); i++){
-                if(another_string[i] == 34){
-                    answ = answ + "\"";
+                if(another_string[i] == '\"'){
+                    answ = answ + "\\"+ "\"";
                 }
-                else if(another_string[i]==92){
-                    answ = answ + "\\";
+                else if(another_string[i]=='\\'){
+                    answ += "\\";
+                    answ += "\\";
                 }
                 else answ += another_string[i];
             }
