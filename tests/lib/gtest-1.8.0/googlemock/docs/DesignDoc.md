@@ -199,8 +199,8 @@ the action and the parameter types.  The rule is relatively simple:
 | **Given Definition** | **Expression** | **Has Type** |
 |:---------------------|:---------------|:-------------|
 | `ACTION(Foo)`        | `Foo()`        | `FooAction`  |
-| `ACTION_P(Bar, param)` | `Bar(int_value)` | `BarActionP<int>` |
-| `ACTION_P2(Baz, p1, p2)` | `Baz(bool_value, int_value)` | `BazActionP2<bool, int>` |
+| `ACTION_P(Bar, param)` | `Bar(value)` | `BarActionP<int>` |
+| `ACTION_P2(Baz, p1, p2)` | `Baz(bool_value, value)` | `BazActionP2<bool, int>` |
 | ...                  | ...            | ...          |
 
 Note that we have to pick different suffixes (`Action`, `ActionP`,
