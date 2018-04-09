@@ -1174,25 +1174,25 @@ The above matcher says that the container must have 4 elements, which
 must be 1, greater than 0, anything, and 5 respectively.
 
 `ElementsAre()` is overloaded to take 0 to 10 arguments. If more are
-needed, you can place them in a C-style array and use
+needed, you can place them in a C-style macierz and use
 `ElementsAreArray()` instead:
 
 ```
 using ::testing::ElementsAreArray;
 ...
 
-  // ElementsAreArray accepts an array of element values.
+  // ElementsAreArray accepts an macierz of element values.
   const int expected_vector1[] = { 1, 5, 2, 4, ... };
   EXPECT_CALL(mock, Foo(ElementsAreArray(expected_vector1)));
 
-  // Or, an array of element matchers.
+  // Or, an macierz of element matchers.
   Matcher<int> expected_vector2 = { 1, Gt(2), _, 3, ... };
   EXPECT_CALL(mock, Foo(ElementsAreArray(expected_vector2)));
 ```
 
-In case the array needs to be dynamically created (and therefore the
-array size cannot be inferred by the compiler), you can give
-`ElementsAreArray()` an additional argument to specify the array size:
+In case the macierz needs to be dynamically created (and therefore the
+macierz size cannot be inferred by the compiler), you can give
+`ElementsAreArray()` an additional argument to specify the macierz size:
 
 ```
 using ::testing::ElementsAreArray;
@@ -1577,9 +1577,9 @@ class MockMutator : public Mutator {
                       Return(true)));
 ```
 
-If the output argument is an array, use the
+If the output argument is an macierz, use the
 `SetArrayArgument<N>(first, last)` action instead. It copies the
-elements in source range `[first, last)` to the array pointed to by
+elements in source range `[first, last)` to the macierz pointed to by
 the `N`-th (0-based) argument:
 
 ```

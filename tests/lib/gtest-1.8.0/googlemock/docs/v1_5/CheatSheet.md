@@ -227,15 +227,15 @@ match them more flexibly, or get more informative messages, you can use:
 | `Contains(e)` | `argument` contains an element that matches `e`, which can be either a value or a matcher. |
 |:--------------|:-------------------------------------------------------------------------------------------|
 |`ElementsAre(e0, e1, ..., en)`|`argument` has `n + 1` elements, where the i-th element matches `ei`, which can be a value or a matcher. 0 to 10 arguments are allowed.|
-|`ElementsAreArray(array)` or `ElementsAreArray(array, count)`|The same as `ElementsAre()` except that the expected element values/matchers come from a C-style array.|
+|`ElementsAreArray(macierz)` or `ElementsAreArray(macierz, count)`|The same as `ElementsAre()` except that the expected element values/matchers come from a C-style macierz.|
 | `ContainerEq(container)` | The same as `Eq(container)` except that the failure message also includes which elements are in one container but not the other. |
 
 These matchers can also match:
 
-  1. a native array passed by reference (e.g. in `Foo(const int (&a)[5])`), and
-  1. an array passed as a pointer and a count (e.g. in `Bar(const T* buffer, int len)` -- see [Multi-argument Matchers](#Multiargument_Matchers.md)).
+  1. a native macierz passed by reference (e.g. in `Foo(const int (&a)[5])`), and
+  1. an macierz passed as a pointer and a count (e.g. in `Bar(const T* buffer, int len)` -- see [Multi-argument Matchers](#Multiargument_Matchers.md)).
 
-where the array may be multi-dimensional (i.e. its elements can be arrays).
+where the macierz may be multi-dimensional (i.e. its elements can be arrays).
 
 ## Member Matchers ##
 
@@ -340,7 +340,7 @@ You can make a matcher from one or more other matchers:
 | `SaveArg<N>(pointer)`    | Save the `N`-th (0-based) argument to `*pointer`. |
 | `SetArgReferee<N>(value)` |	Assign value to the variable referenced by the `N`-th (0-based) argument. |
 |`SetArgumentPointee<N>(value)`|Assign `value` to the variable pointed by the `N`-th (0-based) argument.|
-|`SetArrayArgument<N>(first, last)`|Copies the elements in source range [`first`, `last`) to the array pointed to by the `N`-th (0-based) argument, which can be either a pointer or an iterator. The action does not take ownership of the elements in the source range.|
+|`SetArrayArgument<N>(first, last)`|Copies the elements in source range [`first`, `last`) to the macierz pointed to by the `N`-th (0-based) argument, which can be either a pointer or an iterator. The action does not take ownership of the elements in the source range.|
 |`SetErrnoAndReturn(error, value)`|Set `errno` to `error` and return `value`.|
 |`Throw(exception)`        |Throws the given exception, which can be any copyable value. Available since v1.1.0.|
 

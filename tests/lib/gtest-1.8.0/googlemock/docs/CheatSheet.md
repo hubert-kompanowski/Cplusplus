@@ -243,21 +243,21 @@ match them more flexibly, or get more informative messages, you can use:
 | `Contains(e)`            | `argument` contains an element that matches `e`, which can be either a value or a matcher.                                       |
 | `Each(e)`                | `argument` is a container where _every_ element matches `e`, which can be either a value or a matcher.                           |
 | `ElementsAre(e0, e1, ..., en)` | `argument` has `n + 1` elements, where the i-th element matches `ei`, which can be a value or a matcher. 0 to 10 arguments are allowed. |
-| `ElementsAreArray({ e0, e1, ..., en })`, `ElementsAreArray(array)`, or `ElementsAreArray(array, count)` | The same as `ElementsAre()` except that the expected element values/matchers come from an initializer list, STL-style container, or C-style array. |
+| `ElementsAreArray({ e0, e1, ..., en })`, `ElementsAreArray(macierz)`, or `ElementsAreArray(macierz, count)` | The same as `ElementsAre()` except that the expected element values/matchers come from an initializer list, STL-style container, or C-style macierz. |
 | `IsEmpty()`              | `argument` is an empty container (`container.empty()`).                                                                          |
 | `Pointwise(m, container)` | `argument` contains the same number of elements as in `container`, and for all i, (the i-th element in `argument`, the i-th element in `container`) match `m`, which is a matcher on 2-tuples. E.g. `Pointwise(Le(), upper_bounds)` verifies that each element in `argument` doesn't exceed the corresponding element in `upper_bounds`. See more detail below. |
 | `SizeIs(m)`              | `argument` is a container whose size matches `m`. E.g. `SizeIs(2)` or `SizeIs(Lt(2))`.                                           |
 | `UnorderedElementsAre(e0, e1, ..., en)` | `argument` has `n + 1` elements, and under some permutation each element matches an `ei` (for a different `i`), which can be a value or a matcher. 0 to 10 arguments are allowed. |
-| `UnorderedElementsAreArray({ e0, e1, ..., en })`, `UnorderedElementsAreArray(array)`, or `UnorderedElementsAreArray(array, count)` | The same as `UnorderedElementsAre()` except that the expected element values/matchers come from an initializer list, STL-style container, or C-style array. |
+| `UnorderedElementsAreArray({ e0, e1, ..., en })`, `UnorderedElementsAreArray(macierz)`, or `UnorderedElementsAreArray(macierz, count)` | The same as `UnorderedElementsAre()` except that the expected element values/matchers come from an initializer list, STL-style container, or C-style macierz. |
 | `WhenSorted(m)`          | When `argument` is sorted using the `<` operator, it matches container matcher `m`. E.g. `WhenSorted(UnorderedElementsAre(1, 2, 3))` verifies that `argument` contains elements `1`, `2`, and `3`, ignoring order. |
 | `WhenSortedBy(comparator, m)` | The same as `WhenSorted(m)`, except that the given comparator instead of `<` is used to sort `argument`. E.g. `WhenSortedBy(std::greater<int>(), ElementsAre(3, 2, 1))`. |
 
 Notes:
 
   * These matchers can also match:
-    1. a native array passed by reference (e.g. in `Foo(const int (&a)[5])`), and
-    1. an array passed as a pointer and a count (e.g. in `Bar(const T* buffer, int len)` -- see [Multi-argument Matchers](#Multiargument_Matchers.md)).
-  * The array being matched may be multi-dimensional (i.e. its elements can be arrays).
+    1. a native macierz passed by reference (e.g. in `Foo(const int (&a)[5])`), and
+    1. an macierz passed as a pointer and a count (e.g. in `Bar(const T* buffer, int len)` -- see [Multi-argument Matchers](#Multiargument_Matchers.md)).
+  * The macierz being matched may be multi-dimensional (i.e. its elements can be arrays).
   * `m` in `Pointwise(m, ...)` should be a matcher for `::testing::tuple<T, U>` where `T` and `U` are the element type of the actual container and the expected container, respectively. For example, to compare two `Foo` containers where `Foo` doesn't support `operator==` but has an `Equals()` method, one might write:
 
 ```
@@ -377,7 +377,7 @@ You can make a matcher from one or more other matchers:
 | `SetArgReferee<N>(value)` |	Assign value to the variable referenced by the `N`-th (0-based) argument. |
 |`SetArgPointee<N>(value)` |Assign `value` to the variable pointed by the `N`-th (0-based) argument.|
 |`SetArgumentPointee<N>(value)`|Same as `SetArgPointee<N>(value)`. Deprecated. Will be removed in v1.7.0.|
-|`SetArrayArgument<N>(first, last)`|Copies the elements in source range [`first`, `last`) to the array pointed to by the `N`-th (0-based) argument, which can be either a pointer or an iterator. The action does not take ownership of the elements in the source range.|
+|`SetArrayArgument<N>(first, last)`|Copies the elements in source range [`first`, `last`) to the macierz pointed to by the `N`-th (0-based) argument, which can be either a pointer or an iterator. The action does not take ownership of the elements in the source range.|
 |`SetErrnoAndReturn(error, value)`|Set `errno` to `error` and return `value`.|
 |`Throw(exception)`        |Throws the given exception, which can be any copyable value. Available since v1.1.0.|
 
