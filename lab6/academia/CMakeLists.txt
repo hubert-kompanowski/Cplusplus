@@ -1,13 +1,13 @@
 
-project(academia)
+project(studentrepository)
 
-set(HEDEAR_FILES Academia.h)
-set(SOURCE_FILES Academia.cpp)
+set(HEDEAR_FILES StudentRepository.h)
+set(SOURCE_FILES StudentRepository.cpp)
 
-add_library(libacademia STATIC ${SOURCE_FILES})
-target_include_directories(libacademia PUBLIC .)
+add_library(libstudentrepository STATIC ${SOURCE_FILES})
+target_include_directories(libstudentrepository PUBLIC .)
 
-add_executable(academia ${SOURCE_FILES} main.cpp)
+add_executable(studentrepository ${SOURCE_FILES} main.cpp)
 
-target_link_libraries(academia libacademia)
+target_link_libraries(studentrepository libstudentrepository)
 
