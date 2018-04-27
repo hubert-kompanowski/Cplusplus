@@ -5,6 +5,7 @@ set(GTEST_LIBS gtest gtest_main gmock gmock_main)
 
 add_subdirectory(lib/stringutility)
 add_subdirectory(lib/memleak)
+add_subdirectory(lib/memleakmacos)
 
 function(capitilize WORD UPPERED)
     string(TOLOWER "${WORD}" LOWER)
@@ -73,6 +74,8 @@ endmacro(add_gtest_with_memleak_stepped)
 macro(memleak_target TARGET_NAME)
     if (NOT APPLE)
         target_link_libraries("${TARGET_NAME}" memleak)
+    else()
+        target_link_libraries("${TARGET_NAME}" memleakmacos)
     endif()
 endmacro(add_memleak)
 

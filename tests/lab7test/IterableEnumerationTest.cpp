@@ -3,6 +3,7 @@
 //
 
 #include <gtest/gtest.h>
+#include <cstddef>
 #include <string>
 #include <vector>
 #include <memory>
@@ -22,10 +23,24 @@ TEST_F(IterableEnumerationTests, EnumerateStringList) {
   vector<string> vs {"4", "9991", "adfskld"};
   vector<int> expected {1, 2, 3};
 
-  int i = 0;
+  size_t i = 0;
   for (const auto &p : Enumerate(vs)) {
     EXPECT_EQ(expected[i], p.first);
     EXPECT_EQ(vs[i], p.second);
     i++;
   }
+  EXPECT_EQ(expected.size(),i);
+}
+
+TEST_F(IterableEnumerationTests, EnumerateLongerStringList) {
+  vector<string> vs {"troche", "dluzszy", "wektor", "poniewaz", "posiada", "wiecej", "elementow"};
+  vector<int> expected {1, 2, 3, 4, 5, 6, 7};
+
+  size_t i = 0;
+  for (const auto &p : Enumerate(vs)) {
+    EXPECT_EQ(expected[i], p.first);
+    EXPECT_EQ(vs[i], p.second);
+    i++;
+  }
+  EXPECT_EQ(expected.size(),i);
 }
