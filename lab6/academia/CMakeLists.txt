@@ -1,8 +1,9 @@
 
 project(studentrepository)
 
-set(HEDEAR_FILES StudentRepository.h)
-set(SOURCE_FILES StudentRepository.cpp)
+set(HEDEAR_FILES Student.h StudyYear.h StudentRepository.h)
+set(SOURCE_FILES Student.cpp StudyYear.cpp StudentRepository.cpp)
+
 
 add_library(libstudentrepository STATIC ${SOURCE_FILES})
 target_include_directories(libstudentrepository PUBLIC .)

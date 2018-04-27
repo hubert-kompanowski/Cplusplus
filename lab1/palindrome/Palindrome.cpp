@@ -6,14 +6,8 @@
 
 
 bool IsPalindrome(std::string str){
-    size_t size = str.length();
-    const char *characters = str.c_str();
-    if(size<=1) {
-        return true;
-    }
-
-    for(int i=0; i<size/2; i++) {
-        if(characters[i] != characters[size-1-i]) {
+    for(unsigned long i=0; i<str.size(); i++ ){
+        if(str.at(i) != str.at(str.size()-i-1)){
             return false;
         }
     }

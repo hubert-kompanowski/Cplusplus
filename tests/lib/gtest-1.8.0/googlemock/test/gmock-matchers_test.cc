@@ -5094,7 +5094,7 @@ FindBacktrackingMaxBPM(const Graph& g) {
 
 class BacktrackingBPMTest : public ::testing::Test { };
 
-// Tests the MaxBipartiteMatching algorithm with geometry matrices.
+// Tests the MaxBipartiteMatching algorithm with square matrices.
 // The single int param is the # of nodes on each of the left and right sides.
 class BipartiteTest : public ::testing::TestWithParam<int> { };
 

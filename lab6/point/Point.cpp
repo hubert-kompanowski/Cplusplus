@@ -41,6 +41,7 @@ double Point::GetY() {
     return y_;
 }
 
+
 double ReadNumber(istream* is) {
     double d;
     (*is) >> d;

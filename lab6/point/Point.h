@@ -12,6 +12,8 @@ public:
 
 
     void SetX(double x);
+
+
     void SetY(double y);
 
     double GetX();

@@ -2,99 +2,86 @@
 // Created by hubert on 11.04.18.
 //
 
+
+
 #include "StudentRepository.h"
-using namespace academia;
 
-StudyYear::StudyYear():year(1){}
-StudyYear::StudyYear(int a):year(a){}
-
-StudyYear StudyYear::operator++(int){
-    year++;
-}
-StudyYear StudyYear::operator++(){
-    year++;
-}
-StudyYear StudyYear::operator--(){
-    year--;
-}
-StudyYear StudyYear::operator--(int){
-    year--;
-}
-
-
-
-
-StudyYear::operator int(){
-    return year;
-}
-Student::Student(string a,string b ,string c,string d,StudyYear e):id(a),first_name(b),last_name(c),program(d),year(e){}
-
-StudentRepository::StudentRepository(){}
-StudentRepository::StudentRepository(initializer_list<Student> list){
-    for(auto pointer = list.begin();pointer!=list.end();pointer++) {
-        rep.emplace_back(*pointer);
+namespace academia {
+    StudentRepository::StudentRepository(std::initializer_list<Student> in) {
+        studentcontainer_.assign(in);
     }
-}
 
-StudyYear Student::GetYear() {
-    return this->year;
-}
 
-void Student::ChangeFirstName(string temp){
-    first_name=temp;
-}
-void Student::ChangeLastName(string temp) {
-    last_name = temp;
-}
-string Student::Id(){
-    return id;
-}
-string Student::FirstName(){
-    return first_name;
-}
+    void StudentRepository::AddStudent(Student &in) {
+        studentcontainer_.push_back(in);
+    }
+    void StudentRepository::RemoveStudent(std::string outbyid) {
+        bool flag = true;
+        int i=0;
+        while  ( i < studentcontainer_.size() && flag) {
+            if (studentcontainer_[i].Id()==outbyid)
+                flag=false;
+            i++;
+        }
+        if (!flag)
+            studentcontainer_.erase(studentcontainer_.begin()+i);
+    }
+    void StudentRepository::RemoveStudent(Student out) {
+        std::string outbyid=out.Id();
+        this->RemoveStudent(outbyid);
+    }
+    int StudentRepository::StudentCount() const{
+        return studentcontainer_.size();
+    }
 
-string Student::LastName() {
-    return last_name;
-}
+    std::vector<Student> StudentRepository::FindByQuery(const std::unique_ptr<Query> &query){
+        std::vector<Student> out;
+        for (auto item : studentcontainer_) {
+            if (query->Accept(item)) out.push_back(item);
+        }
+        return out;
+    }
 
-string Student::Program() {
-    return program;
-}
+    std::vector<Student> StudentRepository::get() const {
+        return studentcontainer_;
+    }
 
-StudyYear Student::Year() {
-    return year;
-}
+    Student &StudentRepository::operator[]( const std::string &searchforid) {
+        bool flag = true;
+        int i=0;
+        while  ( i < studentcontainer_.size() && flag) {
+            if (studentcontainer_[i].Id()==searchforid) {
+                flag = false;
+                return studentcontainer_[i];
+            }
+            i++;
+        }
+        return studentcontainer_[i];
+    }
 
-size_t StudentRepository::StudentCount(){
-    return rep.size();
-}
-Student& StudentRepository::operator[](string id){
-    for(int a =0; a<StudentCount();a++ ) {
-        if(rep[a].Id()==id) {
-            return rep[a];
+    bool operator==(const StudentRepository &a, const StudentRepository &b) {
+        if(a.StudentCount() != b.StudentCount())
+            return false;
+        bool flag;
+
+        for (auto u: a.get())
+        {
+            flag = false;
+            for(auto v: b.get())
+            {
+                if (u.Id() == v.Id())
+                    flag = true;
+            }
+            if(!flag) return false;
+        }
+        return true;
+    }
+
+    std::ostream &operator<<(std::ostream &os, StudentRepository stdrep){
+        for(int i=0; i<stdrep.StudentCount(); ++i) {
+            os << stdrep;
+            os << std::endl;
         }
     }
 
 }
-
-
-
-
-
-istream& operator>>(istream & input, Student& p){
-
-    input >> p.year;
-    return input;
-}
-
-ostream& operator<<(ostream & output, Student& p){
-
-    output << p.year;
-    return output;
-}
-
-/*
- *
- *
- *
- */

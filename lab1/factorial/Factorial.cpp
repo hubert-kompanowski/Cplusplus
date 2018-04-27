@@ -3,7 +3,11 @@
 //
 #include "Factorial.h"
 
-bool OutOfRange(int value);
+
+bool OutOfRange(int value) {
+    return value <= -13 || value >= 13; 
+}
+
 
 int FactorialIter(int value) {
   if(OutOfRange(value)){
@@ -47,5 +51,4 @@ int Factorial(int value) {
   }
 }
 
-bool OutOfRange(int value) { return value <= -13 || value >= 13; }
 

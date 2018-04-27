@@ -4,8 +4,9 @@
 
 #ifndef JIMP_EXERCISES_FACTORIAL_H
 #define JIMP_EXERCISES_FACTORIAL_H
+bool OutOfRange(int value);
 
+int FactorialIter(int value);
 int Factorial(int value);
-int factorial_rek(int value);
 
 #endif //JIMP_EXERCISES_FACTORIAL_H

@@ -7,8 +7,7 @@
 using namespace std;
 
 
-string integer_to_string(int palindrome_num_in_10)
-{
+string integer_to_string(int palindrome_num_in_10) {
     string str;
 
     //konwesja int -> string liczby(10) oraz zamiana na system (2)
@@ -20,8 +19,7 @@ string integer_to_string(int palindrome_num_in_10)
     return str;
 }
 
-int isPalindrome(int number)
-{
+int isPalindrome(int number) {
     int tmp_num = number;
     int reverse_num = 0;
 

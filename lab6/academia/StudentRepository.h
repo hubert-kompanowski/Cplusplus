@@ -2,70 +2,47 @@
 // Created by hubert on 11.04.18.
 //
 
+
 #ifndef JIMP_EXERCISES_STUDENTREPOSITORY_H
 #define JIMP_EXERCISES_STUDENTREPOSITORY_H
-#include <string>
+
+
+#include <set>
+#include <initializer_list>
 #include <vector>
-
-using namespace std;
-
+#include <string>
+#include <memory>
+#include "Student.h"
 
 namespace academia {
-    class StudyYear{
+    class Query {
     public:
-        StudyYear();
-        explicit StudyYear(int);
-
-        explicit operator int();
-
-        StudyYear operator++();
-        StudyYear operator++(int);
-        StudyYear operator--();
-        StudyYear operator--(int);
-
-
-
-
-    private:
-        int year;
+        virtual bool Accept(const Student &student) const =0;
     };
-    class Student{
-    public:
-        Student();
-        Student(string,string,string,string,StudyYear);
 
-        StudyYear GetYear();
-        string Id();
-        string FirstName();
-        string LastName();
-        string Program();
-        StudyYear Year();
-        void ChangeFirstName(string);
-        void ChangeLastName(string);
-        StudyYear year;
-    private:
-        string id;
-        string first_name;
-        string last_name;
-        string program;
 
-    };
     class StudentRepository {
     public:
-        StudentRepository();
-        StudentRepository(initializer_list<Student>);
-        size_t StudentCount();
-        Student&operator[](string);
+        StudentRepository(std::initializer_list<Student> in);
+        void AddStudent(Student &in);
+        void RemoveStudent(Student out);
+        void RemoveStudent(std::string outbyid);
+        int StudentCount() const;
 
+//        std::vector<Student> FindByQuery(const Query &query);
+        std::vector<Student> FindByQuery(const std::unique_ptr<Query> &query);
+
+        std::vector<Student> get() const;
+
+        Student &operator[]( const std::string &searchforid);
+
+        friend bool operator==(const StudentRepository &firstrep,  const StudentRepository &secondrep);
     private:
-        vector<Student> rep;
+        std::vector<Student> studentcontainer_;
+
     };
 
-
-    std::istream& operator>>(std::istream &is, StudyYear&);
-    std::ostream& operator<<(std::ostream &is, StudyYear&);
+    bool operator==(const StudentRepository &firstrep, const StudentRepository &secondrep);
+    std::ostream &operator<<(std::ostream &os, StudentRepository stdrep);
 }
-
-
-
 #endif //JIMP_EXERCISES_STUDENTREPOSITORY_H

@@ -3,13 +3,12 @@
 //
 
 
-#include <iostream>
 #include "MultiplicationTable.h"
 
 int main() {
     int tab[10][10];
     MultiplicationTable(tab);
-    drawtable(tab);
+    DrawTable(tab);
 
     return 0;
 }

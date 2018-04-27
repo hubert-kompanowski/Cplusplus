@@ -86,3 +86,4 @@ TEST_F(StudentRepositoryQueryTest, QueryStudentByFirstNameAndByYearLowerOrEqualT
   EXPECT_EQ(1, result.size());
   EXPECT_TRUE(expected.find(result.at(0)) != expected.end());
 }
+

@@ -8,7 +8,7 @@
 
 
 void MultiplicationTable(int tab[][10]);
-void drawtable(int tab[][10]);
+void DrawTable(int tab[][10]);
 
 
 #endif //JIMP_EXERCISES_MULTIPLICATIONTABLE_H
