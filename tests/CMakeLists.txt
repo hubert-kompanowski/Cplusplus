@@ -77,7 +77,7 @@ macro(memleak_target TARGET_NAME)
     else()
         target_link_libraries("${TARGET_NAME}" memleakmacos)
     endif()
-endmacro(add_memleak)
+endmacro(memleak_target)
 
 add_subdirectory(lab1test)
 add_subdirectory(lab2test)
