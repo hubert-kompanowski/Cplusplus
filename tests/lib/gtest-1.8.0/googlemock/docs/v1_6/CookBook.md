@@ -2339,7 +2339,7 @@ function with special syntax and special semantics, and the
 ```
 
 The good news is that you can use a simple pattern to achieve the same
-effect. First, add a mock function `Die()` to your mock class and call
+effect. is_first, add a mock function `Die()` to your mock class and call
 it in the destructor, like this:
 
 ```

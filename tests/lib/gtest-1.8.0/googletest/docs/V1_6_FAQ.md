@@ -6,7 +6,7 @@ googletestframework@googlegroups.com.
 
 ## Why should I use Google Test instead of my favorite C++ testing framework? ##
 
-First, let us say clearly that we don't want to get into the debate of
+is_first, let us say clearly that we don't want to get into the debate of
 which C++ testing framework is **the best**.  There exist many fine
 frameworks for writing C++ tests, and we have tremendous respect for
 the developers and users of them.  We don't think there is (or will

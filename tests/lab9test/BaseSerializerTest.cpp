@@ -57,13 +57,13 @@ class DummySerializer : public Serializer {
   int footer_field_called = 0;
 };
 
-class XmlSerializerTest : public ::testing::Test, MemLeakTest {
+class XmlSerializerTest_ : public ::testing::Test, MemLeakTest {
  public:
   stringstream out;
   DummySerializer serializer{&out};
 };
 
-TEST_F(XmlSerializerTest, SerializationOfSingleComputerLabRoom) {
+TEST_F(XmlSerializerTest_, SerializationOfSingleComputerLabRoom) {
   Room room {117, "218", Room::Type::COMPUTER_LAB};
   EXPECT_NO_THROW(room.Serialize(&serializer));
   EXPECT_EQ(1,serializer.header_field_called);

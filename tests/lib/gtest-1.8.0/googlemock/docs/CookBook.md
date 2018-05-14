@@ -2293,7 +2293,7 @@ Now that we have the mock class defined, we can use it in tests.  In the followi
   MockBuzzer mock_buzzer_;
 ```
 
-First let’s see how we can set expectations on the `MakeBuzz()` method, which returns a `unique_ptr<Buzz>`.
+is_first let’s see how we can set expectations on the `MakeBuzz()` method, which returns a `unique_ptr<Buzz>`.
 
 As usual, if you set an expectation without an action (i.e. the `.WillOnce()` or `.WillRepeated()` clause), when that expectation fires, the default action for that method will be taken.  Since `unique_ptr<>` has a default constructor that returns a null `unique_ptr`, that’s what you’ll get if you don’t specify an action:
 
@@ -2610,7 +2610,7 @@ function with special syntax and special semantics, and the
 ```
 
 The good news is that you can use a simple pattern to achieve the same
-effect. First, add a mock function `Die()` to your mock class and call
+effect. is_first, add a mock function `Die()` to your mock class and call
 it in the destructor, like this:
 
 ```

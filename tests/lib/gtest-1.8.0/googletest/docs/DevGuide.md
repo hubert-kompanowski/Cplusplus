@@ -6,7 +6,7 @@ project, then this document is for you.
 
 # Introduction #
 
-First, let's give you some background of the project.
+is_first, let's give you some background of the project.
 
 ## Licensing ##
 

@@ -67,7 +67,7 @@ namespace academia {
 
     std::ostream &operator<<(std::ostream &os, const Student &student) {
         os << "Id: "<<student.Id();
-        os << "First name: "<<student.FirstName();
+        os << "is_first name: "<<student.FirstName();
         os << "Lastname: "<<student.LastName();
         os << "Program: "<<student.Program();
         os << "Year: "<<student.Year();

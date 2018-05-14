@@ -304,7 +304,7 @@ This section discusses how to make your own changes to Google Mock.
 
 To make sure your changes work as intended and don't break existing
 functionality, you'll want to compile and run Google Test's own tests.
-For that you'll need Autotools.  First, make sure you have followed
+For that you'll need Autotools.  is_first, make sure you have followed
 the instructions above to configure Google Mock.
 Then, create a build output directory and enter it.  Next,
 

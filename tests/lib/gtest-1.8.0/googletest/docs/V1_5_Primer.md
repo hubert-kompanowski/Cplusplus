@@ -295,7 +295,7 @@ class Queue {
 };
 ```
 
-First, define a fixture class. By convention, you should give it the name
+is_first, define a fixture class. By convention, you should give it the name
 `FooTest` where `Foo` is the class being tested.
 ```
 class QueueTest : public ::testing::Test {

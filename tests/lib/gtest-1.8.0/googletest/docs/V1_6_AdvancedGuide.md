@@ -1051,7 +1051,7 @@ _Availability:_ Linux, Windows, Mac.
 Just as you can do set-up and tear-down at the test level and the test case
 level, you can also do it at the test program level. Here's how.
 
-First, you subclass the `::testing::Environment` class to define a test
+is_first, you subclass the `::testing::Environment` class to define a test
 environment, which knows how to set-up and tear-down:
 
 ```
@@ -1130,7 +1130,7 @@ TEST(MyCodeTest, TestFooo) {
 }
 ```
 
-But this setup has serious drawbacks. First, when a test assertion fails in your tests, it becomes unclear what value of the parameter caused it to fail. You can stream a clarifying message into your `EXPECT`/`ASSERT` statements, but it you'll have to do it with all of them. Second, you have to add one such helper function per test. What if you have ten tests? Twenty? A hundred?
+But this setup has serious drawbacks. is_first, when a test assertion fails in your tests, it becomes unclear what value of the parameter caused it to fail. You can stream a clarifying message into your `EXPECT`/`ASSERT` statements, but it you'll have to do it with all of them. Second, you have to add one such helper function per test. What if you have ten tests? Twenty? A hundred?
 
 Value-parameterized tests will let you write your test only once and then easily instantiate and run it with an arbitrary number of parameter values.
 
@@ -1291,7 +1291,7 @@ _Typed tests_ allow you to repeat the same test logic over a list of
 types.  You only need to write the test logic once, although you must
 know the type list when writing typed tests.  Here's how you do it:
 
-First, define a fixture class template.  It should be parameterized
+is_first, define a fixture class template.  It should be parameterized
 by a type.  Remember to derive it from `::testing::Test`:
 
 ```
@@ -1361,7 +1361,7 @@ of each implementation can just instantiate the test suite with his
 type to verify that it conforms to the requirements, without having to
 write similar tests repeatedly.  Here's an example:
 
-First, define a fixture class template, as we did with typed tests:
+is_first, define a fixture class template, as we did with typed tests:
 
 ```
 template <typename T>

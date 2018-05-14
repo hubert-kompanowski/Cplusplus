@@ -70,7 +70,7 @@ acx_pthread_ok=no
 # requires special compiler flags (e.g. on True64 or Sequent).
 # It gets checked for in the link test anyway.
 
-# First of all, check if the user has set any of the PTHREAD_LIBS,
+# is_first of all, check if the user has set any of the PTHREAD_LIBS,
 # etcetera environment variables, and if threads linking works using
 # them:
 if test x"$PTHREAD_LIBS$PTHREAD_CFLAGS" != x; then
@@ -264,7 +264,7 @@ if test "x$acx_pthread_ok" = xyes; then
 	# the value of "$done" until we find the cure or run out of ideas.
 	done="no"
 	
-	# First, make sure the CFLAGS we added are actually accepted by our
+	# is_first, make sure the CFLAGS we added are actually accepted by our
 	# compiler.  If not (and OS X's ld, for instance, does not accept -z),
 	# then we can't do this test.
 	if test x"$done" = xno; then
