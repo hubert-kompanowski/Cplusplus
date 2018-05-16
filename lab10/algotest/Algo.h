@@ -18,7 +18,7 @@ namespace algo {
 
     std::vector<int> Values(const std::map<std::string, int> &m);
 
-    std::map<std::string, int> DivisableBy(const std::map<std::string, int> &m, int divisor);
+    std::vector<int> DivisableBy(const std::vector<int>&m, int divisor);
 
     void SortInPlace(std::vector<int> *v);
 
@@ -54,7 +54,7 @@ namespace algo {
 
     void CopyInto(const std::vector<int> &v, int n_elements, std::vector<int> *out);
 
-    int HowManyShortStrings(const std::vector<std::string> &v, int inclusive_short_length);
+    long HowManyShortStrings(const std::vector<std::string> &v, int inclusive_short_length);
 
 }
 #endif //JIMP_EXERCISES_ALGO_H
