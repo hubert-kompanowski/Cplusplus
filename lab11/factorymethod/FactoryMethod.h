@@ -9,16 +9,16 @@
 
 namespace factoryMethod {
     template<typename T>
-    T Create() {
-        T value{};
-        return value;
-    };
+    T Create(){
+        return T();
+    }
 
-    class  MyType{
+    class MyType{
     public:
         std::string SayHello(){
             return "hello";
         }
+
     };
 
     template<typename  T>
@@ -27,9 +27,9 @@ namespace factoryMethod {
     }
 
     template <typename T>
-    T Mean(std::vector<T> v){
-        T sum{};
-        for (int i = 0; i<v.size(); i++){\
+    T Mean(const std::vector<T> &v){
+        T sum = Create<T>();
+        for (int i = 0; i<v.size(); i++){
             sum += v[i];
         }
         return (sum/v.size());
@@ -43,3 +43,6 @@ namespace factoryMethod {
 
 
 #endif //JIMP_EXERCISES_FACTORYMETHOD_H
+
+
+
